@@ -28,7 +28,7 @@ import com.google.cloud.dataflow.sdk.transforms.ParDo;
 import com.google.cloud.dataflow.sdk.transforms.SimpleFunction;
 import com.google.cloud.dataflow.sdk.values.KV;
 
-
+//
 /**
  * An example that counts words in Shakespeare.
  *
