@@ -66,9 +66,9 @@ public class MinimalWordCount {
       .as(DataflowPipelineOptions.class);
     options.setRunner(BlockingDataflowPipelineRunner.class);
     // CHANGE 1/3: Your project ID is required in order to run your pipeline on the Google Cloud.
-    options.setProject("SET_YOUR_PROJECT_ID_HERE");
+    options.setProject("wordcount-156803");
     // CHANGE 2/3: Your Google Cloud Storage path is required for staging local files.
-    options.setStagingLocation("gs://SET_YOUR_BUCKET_NAME_HERE/AND_STAGING_DIRECTORY");
+    options.setStagingLocation("gs://minimum-wordcount-bucket-156803/staging");
 
     // Create the Pipeline object with the options we defined above.
     Pipeline p = Pipeline.create(options);
@@ -109,7 +109,7 @@ public class MinimalWordCount {
      // TextIO.Write writes the contents of a PCollection (in this case, our PCollection of
      // formatted strings) to a series of text files in Google Cloud Storage.
      // CHANGE 3/3: The Google Cloud Storage path is required for outputting the results to.
-     .apply(TextIO.Write.to("gs://YOUR_OUTPUT_BUCKET/AND_OUTPUT_PREFIX"));
+     .apply(TextIO.Write.to("gs://minimum-wordcount-bucket-156803/output"));
 
     // Run the pipeline.
     p.run();
